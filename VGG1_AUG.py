@@ -72,9 +72,9 @@ def run_test_harness():
   width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
   test_datagen = ImageDataGenerator(rescale=1.0/255.0)
   # prepare iterators
-  train_it = train_datagen.flow_from_directory('dataset_dogs_vs_cats/train/',
+  train_it = train_datagen.flow_from_directory('dataset_aero_vs_dirt/train/',
   class_mode='binary', batch_size=64, target_size=(200, 200))
-  test_it = test_datagen.flow_from_directory('dataset_dogs_vs_cats/test/',
+  test_it = test_datagen.flow_from_directory('dataset_aero_vs_dirt/test/',
   class_mode='binary', batch_size=64, target_size=(200, 200))
   # fit model
   history = model.fit_generator(train_it, steps_per_epoch=len(train_it),
@@ -83,7 +83,7 @@ def run_test_harness():
   plotmodelhistory(history)
   # evaluate model
   _, acc = model.evaluate_generator(test_it, steps=len(test_it), verbose=0)
-  print('> %.3f' % (acc * 100.0))
+  print(acc * 100.0)
   # learning curves
   summarize_diagnostics(history)
  
