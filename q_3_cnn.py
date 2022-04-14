@@ -1,4 +1,3 @@
-# baseline model with data augmentation for the dogs vs cats dataset
 import sys
 from matplotlib import pyplot
 import matplotlib.pyplot as plt
@@ -27,7 +26,6 @@ def define_model_vgg():
   model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
   
   return model
-
 
 def plotmodelhistory(history): 
     fig, axs = plt.subplots(1,2,figsize=(15,5)) 
